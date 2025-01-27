@@ -52,18 +52,11 @@ namespace Mission4Assignment
             {
                 if (board[pattern[0]] == board[pattern[1]] &&
                     board[pattern[1]] == board[pattern[2]] &&
-                    board[pattern[0]] != '0' &&
-                    board[pattern[0]] != '1' &&
-                    board[pattern[0]] != '2' &&
-                    board[pattern[0]] != '3' &&
-                    board[pattern[0]] != '4' &&
-                    board[pattern[0]] != '5' &&
-                    board[pattern[0]] != '6' &&
-                    board[pattern[0]] != '7' &&
-                    board[pattern[0]] != '8')
+                    (board[pattern[0]] == 'X' || board[pattern[0]] == 'O'))
                 {
                     return board[pattern[0]]; // Return the winner ('X' or 'O')
                 }
+
             }
 
             // Check if the board is full (tie)
