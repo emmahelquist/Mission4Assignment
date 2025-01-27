@@ -53,9 +53,9 @@ while (!isOver)
     string result = "";
     
 // Check for a winner or if there was a tie
-result = tttt.PrintBoard(boardArray);
+result = tttt.CheckWinner(boardArray);
 
-    if (result == "X") ;
+    if (result == "X") 
     {
         Console.WriteLine($"Player {result} wins!");
         isOver = true;
@@ -91,7 +91,7 @@ result = tttt.PrintBoard(boardArray);
     boardArray[selectionTwo - 1] = "O"; // Assign 'O' to player two's spot
     
 // Print the board
-result = tttt.PrintBoard(boardArray);
+tttt.PrintBoard(boardArray);
 
 // Check for a winner or if there was a tie
 result = tttt.CheckWinner(boardArray);
