@@ -8,7 +8,7 @@ namespace Mission4Assignment
 {
     internal class TicTacToeTools
     {
-        public void PrintBoard(char[] board)
+        public void PrintBoard(string[] board)
         {
             for (int i = 0; i < board.Length; i++)
             {
