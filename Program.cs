@@ -105,16 +105,19 @@ result = tttt.CheckWinner(boardArray);
     {
         Console.WriteLine($"\nPlayer {result} wins!");
         isOver = true;
+        break;
     }
     else if (result == "O")
     {
         Console.WriteLine($"\nPlayer {result} wins!");
         isOver = true;
+        break;
     }
     else if (result == "T")
     {
         Console.WriteLine($"\nIt's a Tie!");
         isOver = true;
+        break;
     }
 }
 
