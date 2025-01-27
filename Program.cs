@@ -23,7 +23,7 @@ int selectionTwo = 0;
 TicTacToeTools tttt = new TicTacToeTools();
 
 // Tic Tac Toe Board Array that has numbers as placeholders to print out and show the users
-string[] boardArray = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+string[] boardArray = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 // Print the board
 tttt.PrintBoard(boardArray);
@@ -31,34 +31,36 @@ tttt.PrintBoard(boardArray);
 // While loop that continues as long as the game is still going
 while (!isOver)
 {
-    Console.WriteLine("\nPlayer 1- type the number where you want to put your X. ");
-    selectionOne = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("\nPlayer 1- type the number where you want to put your X.");
 
-    // Check that the number entered is between 1 and 9
-    while (selectionOne < 1 || selectionOne > 9)
+    // Keep asking until the user enters a valid number
+    while (!int.TryParse(Console.ReadLine(), out selectionOne) || selectionOne < 1 || selectionOne > 9)
     {
-        Console.WriteLine("\nSorry, invalid number. Please enter a new number: ");
-        selectionOne = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Invalid input. Please enter a valid number between 1 and 9: ");
     }
 
     // If the spot player one chose is taken, have them choose a new number
     while (boardArray[selectionOne - 1] == "X" || boardArray[selectionOne - 1] == "O")
     {
-        Console.WriteLine("\nSorry, that space is taken. Please enter a new number: ");
-        selectionOne = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Sorry, that space is taken. Please enter a new number: ");
+        while (!int.TryParse(Console.ReadLine(), out selectionOne) || selectionOne < 1 || selectionOne > 9)
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number between 1 and 9: ");
+        }
     }
+
 
     boardArray[selectionOne - 1] = "X"; // Assign 'X' to player one's spot
 
-// Print the board
+    // Print the board
     tttt.PrintBoard(boardArray);
 
     string result = "";
-    
-// Check for a winner or if there was a tie
-result = tttt.CheckWinner(boardArray);
 
-    if (result == "X") 
+    // Check for a winner or if there was a tie
+    result = tttt.CheckWinner(boardArray);
+
+    if (result == "X")
     {
         Console.WriteLine($"\nPlayer {result} wins!");
         isOver = true;
@@ -77,31 +79,33 @@ result = tttt.CheckWinner(boardArray);
         break;
     }
 
-    Console.WriteLine("\nPlayer 2- type the number where you want to put your O. ");
-    selectionTwo = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("\nPlayer 2- type the number where you want to put your O.");
 
-    // Check that the number entered is between 1 and 9
-    while (selectionTwo < 1 || selectionTwo > 9)
+    // Keep asking until the user enters a valid number
+    while (!int.TryParse(Console.ReadLine(), out selectionTwo) || selectionTwo < 1 || selectionTwo > 9)
     {
-        Console.WriteLine("\nSorry, invalid number. Please enter a new number: ");
-        selectionTwo = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Invalid input. Please enter a valid number between 1 and 9: ");
     }
 
-    // If the spot player one chose is taken, have them choose a new number
+    // If the spot player two chose is taken, have them choose a new number
     while (boardArray[selectionTwo - 1] == "X" || boardArray[selectionTwo - 1] == "O")
     {
-        Console.WriteLine("\nSorry, that space is taken. Please enter a new number: ");
-        selectionTwo = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Sorry, that space is taken. Please enter a new number: ");
+        while (!int.TryParse(Console.ReadLine(), out selectionTwo) || selectionTwo < 1 || selectionTwo > 9)
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number between 1 and 9: ");
+        }
     }
 
-    boardArray[selectionTwo - 1] = "O"; // Assign 'O' to player two's spot
-    
-// Print the board
-tttt.PrintBoard(boardArray);
 
-// Check for a winner or if there was a tie
-result = tttt.CheckWinner(boardArray);
-    if (result == "X") 
+    boardArray[selectionTwo - 1] = "O"; // Assign 'O' to player two's spot
+
+    // Print the board
+    tttt.PrintBoard(boardArray);
+
+    // Check for a winner or if there was a tie
+    result = tttt.CheckWinner(boardArray);
+    if (result == "X")
     {
         Console.WriteLine($"\nPlayer {result} wins!");
         isOver = true;
@@ -122,12 +126,3 @@ result = tttt.CheckWinner(boardArray);
 }
 
 Console.WriteLine("\nThanks for playing!");
-
-
-
-
-
-
-
-
-
