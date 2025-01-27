@@ -32,7 +32,7 @@ namespace Mission4Assignment
         } 
         
 
-        public char CheckWinner(char[] board)
+        public string CheckWinner(string[] board)
         {
             // Define all winning combinations
             int[][] winningPatterns = new int[][]
@@ -52,7 +52,7 @@ namespace Mission4Assignment
             {
                 if (board[pattern[0]] == board[pattern[1]] &&
                     board[pattern[1]] == board[pattern[2]] &&
-                    (board[pattern[0]] == 'X' || board[pattern[0]] == 'O'))
+                    (board[pattern[0]] == "X" || board[pattern[0]] == "O"))
                 {
                     return board[pattern[0]]; // Return the winner ('X' or 'O')
                 }
@@ -60,12 +60,12 @@ namespace Mission4Assignment
             }
 
             // Check if the board is full (tie)
-            if (board.All(cell => cell == 'X' || cell == 'O'))
+            if (board.All(cell => cell == "X" || cell == "O"))
             {
-                return 'T'; // Indicate a tie
+                return "T"; // Indicate a tie
             }
 
-            return 'N'; // No winner yet
+            return "N"; // No winner yet
         }
     }  
 }
